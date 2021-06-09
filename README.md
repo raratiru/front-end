@@ -1,5 +1,5 @@
 # front-end
-Front end template using webpack and vr-reset.
+Front end template using webpack and vr-reset with node-sass (vr-reset is compatible with dart-sass).
 
 * https://dev.to/robotspacefish/how-i-set-up-webpack-and-babel-with-vanilla-js-2k5e
 * http://jhildenbiddle.github.io/vertical-rhythm-reset/
