@@ -10,6 +10,9 @@
     "@babel/preset-env": "^7.14.4",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "eslint": "^7.28.0",
+    "eslint-plugin-html": "^6.1.2",
+    "html-webpack-plugin": "^5.3.1",
     "node-sass": "^6.0.0",
     "sass-loader": "^12.0.0",
     "style-loader": "^2.0.0",
@@ -19,9 +22,8 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack serve"
+    "build": "webpack --mode=production",
+    "server": "webpack serve"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

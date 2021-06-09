@@ -1,35 +1,35 @@
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+
 module.exports = {
-  "devtool": 'eval-cheap-module-source-map',
-  "mode": "none",
-  "entry": "./src/index.js",
-  "output": {
-    "path": __dirname + '/dist',
-    "filename": "bundle.js"
+  mode: "development",
+  entry: { "assets/index": "./src/index.js" },
+  output: {
+    path: __dirname + "/dist",
+    filename: "[name].js",
+    clean: true,
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist')
+    contentBase: path.join(__dirname, "dist"),
   },
-  "module": {
-    "rules": [
+  plugins: [
+    new HtmlWebpackPlugin({ template: "src/index.html", minify: true }),
+  ],
+  module: {
+    rules: [
       {
-        "test": /\.css$/,
-        "use": [
-          "style-loader",
-          "css-loader"
-        ]
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
       {
-        "test": /\.js$/,
-        "exclude": /node_modules/,
-        "use": {
-          "loader": "babel-loader",
-          "options": {
-            "presets": [
-              "@babel/preset-env",
-            ]
-          }
-        }
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.s[ac]ss$/i,
@@ -50,6 +50,6 @@ module.exports = {
           },
         ],
       },
-    ]
-  }
+    ],
+  },
 };
